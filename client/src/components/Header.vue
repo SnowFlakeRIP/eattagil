@@ -27,10 +27,12 @@
                 <h5 style="font-size: 22px" class="modal-title modal-text" id="staticBackdropLabel"> Здесь отображаются
                   Ваши покупки</h5>
               </div>
-              <div v-for="item in order" class="modal-body" v-bind:key="item.id">
+              <div v-for="(item,index) in order" class="modal-body" v-bind:key="item.id">
                 <p class="modal-text">{{ item.name }} | количество: {{ item.count }} |
                   цена за {{ item.count }}: {{ item.price * item.count }}
                   <button @click="increment(item.count,item.name)"><i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+                  <button style="margin-left: 5px" @click="minus(item.count,item.name,index)"><i class="fa fa-minus" aria-hidden="true"></i>
                   </button>
                 </p>
               </div>
@@ -118,6 +120,15 @@ export default {
         }
       }
       this.get_summary()
+    },
+    minus(count, name, id) {
+      for (let i = 0; i < this.order.length; i++) {
+        if (this.order[i].name == name) {
+          this.summary = this.summary - (this.order[i].price * this.order[i].count)
+          this.order[i].count = this.order[i].count - 1
+        }
+      }
+      this.order.splice(id, id + 1)
     },
     async make_order() {
       this.s++
