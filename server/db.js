@@ -1,8 +1,8 @@
 const {Sequelize} = require('sequelize')
 module.exports = new Sequelize(
     'eat',
-    'postgres',
-    '12345678',
+    'root',
+    'root',
     {
         dialect: 'postgres',
         host: '45.130.8.125',
