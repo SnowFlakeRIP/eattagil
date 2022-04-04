@@ -22,7 +22,7 @@ fastify.get('/get_products', async (request, response) => {
     }
 })
 
-fastify.listen(8000, async function (err, address) {
+fastify.listen(5000, async function (err, address) {
     if (err) {
         fastify.log.error(err)
         process.exit(1)
