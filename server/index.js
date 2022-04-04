@@ -3,6 +3,9 @@ const path = require('path')
 const fastify = require('fastify')({
     logger: true
 })
+fastify.register(require('fastify-cors'), {
+    // put your options here
+})
 const {Product} = require('./models/model')
 const models = require('./models/model')
 const {log} = require("nodemon/lib/utils");
