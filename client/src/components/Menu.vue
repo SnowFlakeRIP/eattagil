@@ -142,7 +142,7 @@ export default {
       }
     },
     async get_menu() {
-      await axios.get('http://localhost:8000/get_products').then((response) => {
+      await axios.get('http://45.130.8.126:8000/get_products').then((response) => {
         let data = response.data
         for (let i = 0; i < data.length; i++) {
           if (data[i].type == 'Завтрак') {
